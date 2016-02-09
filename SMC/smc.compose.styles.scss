@@ -1,0 +1,166 @@
+#smc--compose{
+
+    .smc--compose-layout{
+        background-color: $primary-background;
+        min-height:350px;
+        hgroup{}
+    }
+
+    .smc--compose-content{
+        min-height:350px;
+
+        &.entity,
+        &.audience{ }
+    }
+
+    .smc--compose-content-main{
+        padding:10px 15px;
+    }
+
+    .smc--compose-content-aside{
+        padding:10px 15px;
+    }
+
+    /* AUDIENCE */
+
+    .smc--compose-audience{
+        margin-left:10px;
+        margin-right:10px;
+
+        a{
+            text-decoration:underline;
+        }
+
+        p{
+            margin:0 10px 10px 10px;
+        }
+    }
+
+    /* ENTITY */
+
+    .smc--compose-search-entity{
+        margin:20px 10px;
+
+        .smc--search-input{
+            width:350px;
+
+            @include breakpoint($mobile){
+                max-width:80%;
+            }
+        }
+
+        .smc-button{
+
+        }
+    }
+
+    .smc--compose-entity-list{
+        margin:20px 10px;
+
+        li {
+            padding-bottom:10px;
+            padding-left:5px;
+
+            a{
+                text-decoration:underline;
+            }
+        }
+    }
+
+    /* COMPOSE */
+
+    /* rules for the smc--thread-boilerplate provided by thread/styles.scss */
+    /* rules for the smc--thread-message provided by thread/styles.scss */
+
+    .smc--compose-thread-editor{
+        background-color:$secondary-background;
+        position:relative;
+        padding-top:20px;
+
+        .smc--compose-editor-title{
+            margin-bottom:10px;
+
+            h3{
+                display:inline-block;
+            }
+
+            a {
+                position: relative;
+                top:8px;
+            }
+        }
+
+    }
+
+    /* compose sequence actions */
+
+    .smc--compose-actions{
+        background-color: $primary-background;
+        border-top:1px dotted $color-mid;
+        text-align: right;
+        margin-left:20px;
+        margin-right:20px;
+        padding-top:15px;
+        padding-bottom:15px;
+
+        a{
+            padding-right: 5px;
+            .icon{}
+        }
+    }
+}
+
+#smc--modal .smc--relationship {
+
+    .smc--relationship-content{
+
+        h4{
+            font-weight:bold !important;
+            margin-bottom:0 !important;
+        }
+
+        strong{
+            display:block;
+            margin-bottom:10px;
+        }
+
+        .smc--relationship-type{
+            margin-bottom:5px;
+        }
+
+        .smc--relationship-identifiers{
+            margin:0 0 10px 20px;
+
+            li{
+                padding-bottom:8px !important;
+
+                a{
+                    text-decoration:underline;
+                }
+            }
+        }
+    }
+}
+
+#smc--modal .smc--subscribe {
+    text-align:left;
+    margin-bottom:40px;
+
+    ul.smc--subscribe-relationship{
+        margin-bottom:10px;
+
+        li {
+            padding-bottom:8px;
+
+            span{
+                display:inline-block;
+                width:120px;
+
+                @include breakpoint($mobile){
+                    width:100%;
+                    padding-bottom:10px;
+                }
+            }
+        }
+    }
+}

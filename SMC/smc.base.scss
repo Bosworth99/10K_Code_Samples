@@ -1,0 +1,654 @@
+
+// TYPOGRAPHY /////////////////////////////////////////////////////////////
+
+#body {
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+#body #app{
+
+	h1,h2,h3,h4,h5,h6{
+		font-weight: normal;
+		text-rendering: optimizelegibility;
+		padding:0;
+		margin-top:.35em;
+		margin-bottom:.65em;
+		text-shadow:0px 0px 1px rgba(50,50,50,.3);
+
+		a{ font-weight: inherit; font-size:inherit; color:inherit; }
+	}
+
+	.huge,.h1, h1 	{ font-size: 22px; line-height: 1.25em; letter-spacing: -1px; }
+	.large,.h2, h2 	{ font-size: 20px; line-height: 1.25em; }
+	.bigger,.h3, h3 { font-size: 18px; line-height: 1.25em; }
+	.big,.h4, h4 	{ font-size: 16px; line-height: 1.25em; }
+	.med,.h5, h5 	{ font-size: 14px; line-height: 1.25em; }
+	.small,.h6, h6, small { font-size: 13px; line-height: 18px; }
+	.subheader 	{ }
+}
+
+#body{
+
+	h1, h2, h3, h4, h5, h6, p, strong, span, div, li, td{ color:$primary-font-color;}
+
+	p { font-size:14px !important; line-height:1.3em; padding:0; margin-bottom:.65em; }
+	p img { margin: 0; }
+
+	em { font-style: italic;}
+	b,strong { font-weight: bold; text-shadow:0px 0px 1px rgba(50,50,50,.3);}
+	small, .small { font-size: 80%; color:inherit;}
+
+	strong, span, em, b {color:inherit; line-height:inherit; font-size:inherit; }
+
+	.nowrap {
+		white-space:nowrap !important;
+		text-wrap:none !important;
+	}
+
+	.font-secondary {
+		color: $dk-orange;
+	}
+
+	.invalid,
+	.error{
+		color:$color-error;
+	}
+
+	.valid,
+	.success{
+		//color:$color-success;
+	}
+
+	.warning{
+		color:$dk-orange;
+	}
+
+	//  LINKS  /////////////////////////////////////////////////////////////////////
+
+	a, a.link{
+		color: $primary-link-color;
+		display:inline-block;
+		cursor:pointer;
+		font-size:13px;
+		vertical-align:middle;
+		@include transition();
+
+		@include breakpoint($mobile){
+			font-size:14px;
+		}
+
+		.icon{
+			color:lighten($color-dark,20%);
+	        font-size:13px;
+	        position:relative;
+	        top:0;
+	        vertical-align:middle;
+	        @include transition();
+
+			@include breakpoint($mobile){
+				font-size:14px;
+				top:-1px;
+			}
+		}
+
+		&.disabled{
+			color:$color-mid !important;
+			cursor:default;
+
+			.icon{
+				color:$color-mid !important;
+			}
+		}
+
+	}
+
+	a, a.link, a:visited, a.link:visited {
+		text-decoration:none;
+		outline:0;
+
+		&.disabled{
+			color:$color-mid !important;
+			cursor:default;
+
+			.icon{
+				color:$color-mid !important;
+			}
+		}
+	}
+
+	a:hover, a.link:hover, a:focus, a:focus.link {
+		color:$primary-link-hover;
+
+		.icon{
+			color:$color-dark;
+		}
+
+		&.disabled{
+			color:$color-mid !important;
+			cursor:default;
+
+			.icon{
+				color:$color-mid !important;
+			}
+		}
+
+	}
+
+	.smc--text-content{
+
+		a, a.link{
+			font-size:inherit !important;
+			vertical-align:top !important;
+
+			&:hover,
+			&:visited{
+				font-size:inherit !important;
+				vertical-align:top !important;
+			}
+		}
+	}
+
+	//	Blockquotes  ////////////////////////////////////////////////////////////////
+
+	blockquote, blockquote p { font-size: 17px; line-height: 24px; font-style: italic; }
+	blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px;}
+	blockquote cite { display: block; font-size: 12px; }
+	blockquote cite:before { content: "\2014 \0020"; }
+	blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { }
+
+	hr { border:1px solid #444; border-width: 1px 0 0; clear: both; margin: 5px; height: 0; }
+
+	//  LISTS  /////////////////////////////////////////////////////////////////////
+
+	ul, ol { margin:0; padding:0; }
+	ul { list-style: none outside; }
+	ol { list-style: decimal outside; }
+	ul li {	padding:0; margin:0; line-height:1; font-size:14px !important;}
+	ol li {	padding:0; margin:0; line-height:1; font-size:14px !important;}
+
+	ul.nav {
+		@include clearfix();
+
+		li{
+			display:inline-block;
+			float:left;
+			padding:4px;
+		}
+	}
+
+	// the rules for general text content are copied into css/editor.css as well.
+
+	.smc--text-content{
+
+		ul, ol { margin:10px 10px 10px 40px; padding:0; }
+		ul { list-style-type : disc; }
+		ol { list-style-type : decimal; }
+		ul li { padding : 2px 0 6px 0px; margin:0; line-height:1.3em;}
+		ol li { padding : 2px 0 6px 0px; margin:0; line-height:1.3em;}
+	}
+
+	//  IMAGES  /////////////////////////////////////////////////////////////////////
+
+	img {
+		display:inline-block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	// TABLES /////////////////////////////////////////////////////////////////////
+
+	table {}
+	table th, table .th { font-weight: normal;}
+
+	table, th, .th, td, .td{ font-size: 13px;}
+
+	.pure-table {
+	    width: 100%;
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    empty-cells: show;
+	    border: 0;
+
+		caption {
+		    color: $color-dark;
+		    padding: 1em 0;
+		    text-align: center;
+		}
+
+		thead, .thead {
+		    background-color: $primary-thead;
+		}
+
+		td, th, .td, .th{
+			position:relative;
+		    font-size: inherit;
+		    margin: 0;
+		    overflow: visible;
+		    padding: 8px 0;
+		}
+
+		/* accomodating table/tr/td || .table/.tr/.td (flexbox version) */
+		.tr, td{
+    		background-color: $lt-tan;
+		}
+
+		&.pure-table-striped tr:nth-child(2n-1) td,
+		&.pure-table-striped .tr:nth-child(2n-1){
+		    background-color: $color-lightest;
+		}
+
+        &.pure-table-striped tr.selected td,
+        &.pure-table-striped .tr.selected{
+            background-color: $row-selected;
+        }
+
+		&.pure-table-striped tr.selected:nth-child(2n-1) td,
+		&.pure-table-striped .tr.selected:nth-child(2n-1){
+		    background-color: lighten($row-selected, 2%);
+		}
+
+	}
+
+	//  FORMS  /////////////////////////////////////////////////////////////////////
+
+	form { }
+	fieldset { padding: 0;margin: 0;border: 0;}
+
+	label,input,button,select,textarea {font-size: 13px;font-weight: normal;line-height: 18px;}
+	label {}
+	label,
+	legend { font-size: 13px;  }
+
+	input[type="checkbox"] {
+		cursor:pointer;
+		display: inline;
+		height:14px;
+		width:14px;
+		outline:none;
+		background-color:white !important;
+
+		@include breakpoint($mobile){
+			height:18px;
+			width:18px;
+		}
+	}
+
+	label span,
+	legend span {}
+	legend { display: block; margin-bottom: 27px;}
+
+	select,
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="color"],
+	.uneditable-input {
+		padding:5px;
+		display: inline-block;
+		box-sizing: border-box;
+		border:1px solid $color-mid;
+		font-size: 16px;
+		line-height: 19px;
+        @include transition();
+
+        &.invalid {
+            border-color:$color-error;
+        }
+
+        &.valid {
+            border-color:$color-success;
+        }
+
+		@include breakpoint($mobile){
+			line-height:24px;
+		}
+	}
+
+	textarea {
+		height:auto;
+		min-height: 60px;
+		resize:vertical;
+	}
+
+	textarea:focus,
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="datetime"]:focus,
+	input[type="datetime-local"]:focus,
+	input[type="date"]:focus,
+	input[type="month"]:focus,
+	input[type="time"]:focus,
+	input[type="week"]:focus,
+	input[type="number"]:focus,
+	input[type="email"]:focus,
+	input[type="url"]:focus,
+	input[type="search"]:focus,
+	input[type="tel"]:focus,
+	input[type="color"]:focus,
+	.uneditable-input:focus {
+	  outline: 0;
+	}
+
+	select,
+	input[type="file"] {
+	  height: 28px;
+	  *margin-top: 4px;
+	  line-height: 28px;
+	}
+
+	select {
+	  border: 1px solid #bbb;
+	}
+
+	select[multiple],
+	select[size] {
+	  height: auto;
+	}
+
+	select:focus,
+	input[type="file"]:focus,
+	input[type="radio"]:focus,
+	input[type="checkbox"]:focus {
+	  outline: none;
+	}
+
+	.smc--form{
+
+		.smc--form-controls{
+			display: block;
+			position:relative;
+			@inlcude clearfix();
+		}
+
+		.smc--form-control{
+			display: inline-block;
+			position:relative;
+			padding-bottom:20px;
+			width:100%;
+
+			.label{
+				display:inline-block;
+				width:80px;
+				position:absolute;
+				left:0;
+				top:0;
+				vertical-align:middle;
+			}
+
+			.input{
+				margin-left:80px;
+				width:calc(100% - 80px);
+
+				input[type="text"]{
+					width:100%;
+				}
+			}
+		}
+
+		.smc--form-actions{
+			@include clearfix();
+
+			ul{
+				float:right;
+
+				.link{
+					position:relative;
+					top:14px;
+				}
+
+				.smc--button{
+					position:relative;
+				}
+			}
+		}
+
+		@include breakpoint($mobile){
+
+			.smc--form-controls .smc--form-control .label{
+				position:relative;
+				width:auto;
+				top:auto;
+				left:auto;
+				padding-bottom:8px;
+			}
+
+			.smc--form-controls .smc--form-control .input{
+				position:relative;
+				margin-left:0;
+				width:100%;
+			}
+		}
+	}
+
+	// ICONS ///////////////////////////////////////////////////////////////////
+
+	.icon{
+		text-shadow:0 0 1px rgba(50,50,50,.4);
+		vertical-align:middle;
+	}
+
+	// ALERTS /////////////////////////////////////////////////////////////////
+
+	.alert{
+		background-color:$lt-yellow;
+		font-size:13px !important;
+		padding:10px;
+		@include drop-shadow(2px, 2px, 6px, .2);
+
+		.icon.warning{
+			color:$color-error;
+		}
+	}
+
+	//  BUTTONS  ///////////////////////////////////////////////////////////////////
+
+	button,
+	input[type="button"]{
+		padding:6px 10px;
+	}
+
+	.smc--button{
+		@include button(14px,14px);
+
+		&.primary{
+			@include primary-button(14px,14px);
+
+			.icon{
+				color:$color-dark;
+			}
+		}
+		&.secondary{
+			@include secondary-button(14px,14px);
+
+			.icon{
+				color:$secondary-btn-font;
+				font-size:16px;
+				text-shadow:0 0 1px $secondary-btn-font;
+			}
+		}
+
+		&.default{
+			@include default-button(14px,14px);
+
+			.icon{
+				color:$color-mid;
+			}
+		}
+
+		&.disabled{
+			@include disabled-button(14px,14px);
+
+			cursor:default;
+			.icon{
+				color:$color-mid;
+			}
+		}
+
+	}
+	.smc--button:hover,
+	.smc--button:focus{
+		@include button-hover();
+
+		&.primary{
+			@include primary-button-hover();
+		}
+
+		&.secondary{
+			@include secondary-button-hover();
+
+			.icon{
+				color:$secondary-btn-over;
+			}
+		}
+
+		&.default{
+			@include default-button-hover();
+		}
+
+		&.disabled{
+			@include disabled-button(14px,14px);
+
+			cursor:default;
+			.icon{
+				color:$color-mid;
+			}
+		}
+
+	}
+	.smc--button:active{
+		@include button-active();
+
+		&.primary{
+			@include primary-button-active();
+		}
+
+		&.secondary{
+			@include secondary-button-active();
+
+			.icon{
+				color:$secondary-btn-over;
+			}
+		}
+
+		&.default{
+			@include default-button-active();
+		}
+
+		&.disabled{
+			@include disabled-button(14px,14px);
+
+			cursor:default;
+			.icon{
+				color:$color-mid;
+			}
+		}
+	}
+
+	.smc--actions{
+		@include clearfix();
+
+		ul {
+			float:right;
+			list-style-type: none;
+
+			li{
+				display:inline-block;
+				float:left;
+				margin-left:10px;
+			}
+		}
+
+		a{
+			&.link{}
+
+			&.smc--button{}
+		}
+	}
+
+	.smc--tooltip{
+		text-align:center;
+		display:inline-block;
+		position:relative;
+		vertical-align:middle;
+
+		i{
+			width:13px;
+			display:block;
+			color: darken($primary-link-color,5%);
+		}
+	}
+
+	.smc--didyouknow{
+		margin-bottom:20px;
+	}
+
+
+	// SHARED MODULES /////////////////////////////////////////////////////////
+
+    .smc--search{
+
+        .smc--search-input{
+            border:1px solid lighten($color-mid,5%);
+            box-sizing:border-box;
+            outline:none;
+            @include border-radiuses(0,0,4px,4px);
+            @include transition();
+        }
+
+        .smc--button{
+            margin:0;
+            outline:none;
+            padding: 6px 8px 5px 8px;
+            left:-4px;
+            top:0;
+            position:relative;
+            @include border-radiuses(4px,4px,0,0);
+            @include drop-shadow(0,0,0,0.0);
+
+            i{
+                font-size: 18px !important;
+                color:$color-lightest !important;
+                @include text-shadow(0,0,1px,$color-lightest);
+            }
+        }
+
+		@include breakpoint($mobile){
+
+			.smc--button{
+				padding: 8px 10px 7px 10px;
+			}
+
+			&[data-state="inactive"]{
+		        .smc--search-input{
+				 	width:0;
+				 	padding-right:0;
+				 	padding-left:0;
+				 	border-color:$color-lightest;
+		        }
+		        .smc--button{
+		        	@include border-radius(4px);
+		        }
+			}
+
+			&[data-state="active"]{
+		        .smc--search-input{
+				 	height:34px;
+				 	width:auto;
+		        }
+		        .smc--button{ }
+			}
+		}
+    }
+}

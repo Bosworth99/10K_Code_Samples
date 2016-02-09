@@ -1,0 +1,166 @@
+<!-- messages/templates/actions.html -->
+<div class="smc--actions-row query clearfix">
+    <div class="smc--actions-bulk">
+        <ul>
+        <% if ( view === 'trash' ) { %>
+            <li data-display="desktop"><a href="#" class="link" data-action="print" target="_blank"><i class="icon icon-icon_print"></i> Print</a></li>
+            <li><a href="#" class="link" data-action="restore"><i class="icon icon-icon_working"></i> Restore</a></li>
+            <li><a href="#" class="link" data-action="delete-permanent"><i class="icon icon-icon_remove"></i> Delete Permanently</a></li>
+        <% } else { %>
+            <li data-display="desktop"><a href="#" class="link" data-action="print" target="_blank"><i class="icon icon-icon_print"></i> Print</a></li>
+            <li data-display="desktop"><a href="#" class="link" data-action="save-attachments" target="_blank"><i class="icon icon-icon_attachment"></i> Save attachments</a></li>
+            <li><a href="#" class="link" data-action="delete"><i class="icon icon-icon_remove"></i> Delete</a></li>
+        <% } %>
+        </ul>
+    </div>
+    <div class="smc--actions-query">
+        <div id="sortBox" class="smc--actions-filter-box" data-display="desktop" data-action="reveal-sort" data-state="closed">
+            <div class="smc--actions-filter-title">
+                <a>Sort by: <i class="icon icon-icon_triangle-down"></i></a>
+            </div>
+            <div class="smc--actions-filter">
+                <form class="smc--actions-filter-form" data-type="sort">
+                    <div class="smc--actions-filter-input-group">
+
+                        <strong>Status</strong>
+                        <div class="smc--actions-filter-input">
+                            <a href="#" data-action="sort" data-column="status" data-order="asc"><i class="icon icon-icon_arrow-down">&nbsp;</i><span>Sort A to Z</span></a>
+                            <a href="#" data-action="sort" data-column="status" data-order="desc"><i class="icon icon-icon_arrow-up">&nbsp;</i><span>Sort Z to A</span></a>
+                        </div>
+
+                        <strong>Date</strong>
+                        <div class="smc--actions-filter-input">
+                            <a href="#" data-action="sort" data-column="date" data-order="desc"><i class="icon icon-icon_arrow-down">&nbsp;</i><span>Sort newest</span></a>
+                            <a href="#" data-action="sort" data-column="date" data-order="asc"><i class="icon icon-icon_arrow-up">&nbsp;</i><span>Sort oldest</span></a>
+                        </div>
+
+                        <strong>About</strong>
+                        <div class="smc--actions-filter-input">
+                            <a href="#" data-action="sort" data-column="about_id" data-order="asc"><i class="icon icon-icon_arrow-down">&nbsp;</i><span>Sort A to Z</span></a>
+                            <a href="#" data-action="sort" data-column="about_id" data-order="desc"><i class="icon icon-icon_arrow-up">&nbsp;</i><span>Sort Z to A</span></a>
+                        </div>
+
+                        <strong>Subject</strong>
+                        <div class="smc--actions-filter-input">
+                            <a href="#" data-action="sort" data-column="subject" data-order="asc"><i class="icon icon-icon_arrow-down">&nbsp;</i><span>Sort A to Z</span></a>
+                            <a href="#" data-action="sort" data-column="subject" data-order="desc"><i class="icon icon-icon_arrow-up">&nbsp;</i><span>Sort Z to A</span></a>
+                        </div>
+
+                        <strong>Details</strong>
+                        <div class="smc--actions-filter-input">
+                            <a href="#" data-action="sort" data-column="detail" data-order="asc"><i class="icon icon-icon_arrow-down">&nbsp;</i><span>Sort A to Z</span></a>
+                            <a href="#" data-action="sort" data-column="detail" data-order="desc"><i class="icon icon-icon_arrow-up">&nbsp;</i> <span>Sort Z to A</span></a>
+                        </div>
+
+                    <% if (listType !== 'truncated'){ %>
+
+                        <strong>Attention</strong>
+                        <div class="smc--actions-filter-input">
+                            <a href="#" data-action="sort" data-column="recipient" data-order="asc"><i class="icon icon-icon_arrow-down">&nbsp;</i><span>Sort A to Z</span></a>
+                            <a href="#" data-action="sort" data-column="recipient" data-order="desc"><i class="icon icon-icon_arrow-up">&nbsp;</i><span>Sort Z to A</span></a>
+                        </div>
+
+                    <% } %>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="filterBox" class="smc--actions-filter-box" data-state="closed">
+            <div class="smc--actions-filter-title" data-action="reveal-filter">
+                <a>Filter by: <i class="icon icon-icon_triangle-down"></i></a>
+            </div>
+            <div class="smc--actions-filter">
+                <form class="smc--actions-filter-form" data-type="filter">
+                    <div class="smc--actions-filter-input-group">
+
+                        <div class="smc--actions-filter-input" style="padding-top:10px;">
+                            <input type="checkbox" name="" data-action="filter" data-type="mymail" /> <i class="icon icon icon-icon_user">&nbsp;</i><label for="">My Mail</label>
+                            <span class="smc--tooltip" data-action="tool-tip" title="My Mail displays only conversations to which you've added a message."><i class="icon icon-icon_help">&nbsp;</i></span>
+                        </div>
+
+                        <strong>Status</strong>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="unread" /> <i class="icon icon icon-icon_envelope">&nbsp;</i><label for="">New</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="accessed" /> <i class="icon icon-icon_envelopeOpen">&nbsp;</i><label for="">Accessed</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="replied" /> <i class="icon icon-icon_reply">&nbsp;</i><label for="">Replied</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="sent" /> <i class="icon icon-icon_arrow-right">&nbsp;</i><label for="">Sent</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="draft" /> <i class="icon icon-icon_newMessage">&nbsp;</i><label for="">Draft</label>
+                        </div>
+
+                        <strong>About</strong>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="claims" /> <label for="">Claims</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="accounts" /> <label for="">Accounts</label>
+                        </div>
+
+                        <strong>Details</strong>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="requiredYou" /> <label for="">Action required by you</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="requiredOther" /> <label for="">Action required by someone else</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="originals" /> <label for="">Originals</label>
+                        </div>
+                        <div class="smc--actions-filter-input">
+                            <input type="checkbox" name="" data-action="filter" data-type="copies" /> <label for="">Copies (CC)</label>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="smc--actions-filter-actions">
+                    <ul class="nav">
+                        <li><a href="#" class="link" data-action="clear">Clear all <i class="icon icon-icon_cancel-circle">&nbsp;</i></a></li>
+                        <li data-display="mobile"><a id="closeFilterBox" href="#" class="link"  data-action="reveal-filter"> Close <i class="icon icon-icon_close">&nbsp;</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="smc--actions-row results clearfix">
+    <div class="smc--actions-breadbox"></div>
+</div>
+
+<div class="smc--actions-row paging clearfix">
+    <div class="smc--actions-select">
+        <span class="count">0</span> selected
+    </div>
+    <div class="smc--actions-pagination">
+
+        <div class="smc--pagination">
+
+            <div class="smc--pagination-click prev" data-action="page" data-dir="prev">
+                <i class="icon icon-icon_caret-left">&nbsp;</i>
+            </div>
+
+            <div class="smc--pagination-records">
+                <span class="range">0-100</span> of <span class="total">125</span>
+            </div>
+
+            <div class="smc--pagination-click next" data-action="page" data-dir="next">
+                <i class="icon icon-icon_caret-right">&nbsp;</i>
+            </div>
+        </div>
+
+    </div>
+    <div class="smc--actions-search">
+        <form class="smc--search" data-action="search" data-state="inactive">
+            <input type="text" class="smc--search-input" value="" placeholder="Search">
+            <button class="smc--button secondary"><i class="icon icon-icon_search"></i></button>
+        </form>
+    </div>
+</div>
